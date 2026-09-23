@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen Controller</title>
+    <link rel="stylesheet" href="/css/control.css" />
+  </head>
+  <body>
+    <main class="controller">
+      <h1>Screen Controller</h1>
+
+      <div class="connection" aria-live="polite">
+        <span id="connection-dot" class="connection__dot"></span>
+        <span id="connection-text">Conectando…</span>
+      </div>
+
+      <section aria-labelledby="preset-title">
+        <h2 id="preset-title">Colores</h2>
+        <div class="color-grid">
+          <button class="color-button color-button--light" data-color="#ffffff">Blanco</button>
+          <button class="color-button" data-color="#000000">Negro</button>
+          <button class="color-button" data-color="#ff0000">Rojo</button>
+          <button class="color-button" data-color="#00a63e">Verde</button>
+          <button class="color-button" data-color="#0066ff">Azul</button>
+          <button class="color-button color-button--light" data-color="#ffff00">Amarillo</button>
+        </div>
+      </section>
+
+      <section aria-labelledby="custom-title">
+        <h2 id="custom-title">Color personalizado</h2>
+        <div class="custom-color">
+          <label for="color-picker">Seleccionar color</label>
+          <input id="color-picker" type="color" value="#ffffff" />
+        </div>
+      </section>
+
+      <p class="selected-color">
+        Color seleccionado:
+        <output id="color-code" for="color-picker">#ffffff</output>
+      </p>
+
+      <section class="text-section" aria-labelledby="text-title">
+        <h2 id="text-title">Texto de la pantalla</h2>
+        <label class="visually-hidden" for="screen-text-input">Texto que aparecerá en la pantalla</label>
+        <textarea
+          id="screen-text-input"
+          maxlength="200"
+          rows="3"
+          placeholder="Escribe un mensaje…"
+        ></textarea>
+        <div class="text-actions">
+          <small>Máximo 200 caracteres</small>
+          <button id="clear-text" class="secondary-button" type="button">Borrar texto</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/control.js"></script>
+  </body>
+</html>
